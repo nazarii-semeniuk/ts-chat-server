@@ -1,7 +1,6 @@
 import supertest from 'supertest';
 import application from '../src/index';
 const app = application.app;
-console.log(app)
 import * as db from './db';
 const request = supertest(app);
 
