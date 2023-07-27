@@ -5,7 +5,11 @@ export class Validator {
     }
 
     static validatePassword(password: string): boolean {
-        return password.length >= 8;
+        return typeof password === 'string' && password.length >= 8;
+    }
+
+    static validateName(name: string): boolean {
+        return typeof name === 'string' && /^[a-zA-Z ,.'-]+$/i.test(name) && name.length >= 2;
     }
 
 }

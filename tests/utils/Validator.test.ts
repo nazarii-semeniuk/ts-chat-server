@@ -56,4 +56,23 @@ describe('Validator', () => {
 
     });
 
+    describe('validateName', () => {
+
+        test('Should return false if name is shorter than 2 symbols', () => {
+            const name = faker.person.firstName().slice(0, 1);
+            expect(Validator.validateName(name)).toBe(false);
+        });
+
+        test('Should return false if name contains numbers', () => {
+            const name = faker.person.firstName() + faker.number.int(10);
+            expect(Validator.validateName(name)).toBe(false);
+        });
+
+        test('Should return true if name is valid', () => {
+            const name = faker.person.firstName();
+            expect(Validator.validateName(name)).toBe(true);
+        })
+
+    });
+
 });

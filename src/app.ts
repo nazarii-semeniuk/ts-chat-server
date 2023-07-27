@@ -31,9 +31,6 @@ class App {
     }
 
     private initializeControllers(controllers: IController[]) {
-        this.app.get('/', (req: Request, res: Response) => {
-            return res.send('Hello World!');
-        });
         controllers.forEach(controller => {
             this.app.use('/api', controller.router);
         });
